@@ -1,0 +1,142 @@
+.clinic-location-page {
+  padding: 60px 20px;
+  background: #fafafa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.breadcrumb span {
+  color: #333;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  max-width: 700px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* FILTER */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d7e2;
+  width: 250px;
+}
+
+.result-count {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* GRID */
+.clinic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.clinic-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.clinic-card {
+  align-items: flex-start;
+}
+
+.clinic-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+.card-content h4 {
+  margin-bottom: 6px;
+}
+
+.card-content p {
+  font-size: 0.85rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card-content button {
+  background: transparent;
+  border: 1px solid #4ade80;
+  color: #16a34a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* PAGINATION */
+.pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7e2;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .clinic-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .clinic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .filter-bar input,
+  .filter-bar select {
+    width: 100%;
+  }
+}

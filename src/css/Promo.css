@@ -1,0 +1,173 @@
+/* ===== PAGE ===== */
+.promo-page {
+  background: #fafafa;
+}
+
+/* ===== HERO ===== */
+.promo-hero {
+  position: relative;
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.promo-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 720px;
+  padding: 0 20px;
+}
+
+.promo-hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.promo-hero-content p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== CONTAINER ===== */
+.promo-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+}
+
+
+/* ===== FILTER ===== */
+.promo-filter {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.promo-filter label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.promo-filter select {
+  width: 260px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d0d7e2;
+}
+
+/* ===== GRID ===== */
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ===== CARD ===== */
+.promo-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.promo-card-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.promo-badge {
+  font-size: 12px;
+  color: #2f8f8b;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.promo-card-body h3 {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.promo-location {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: auto;
+}
+
+.promo-card-body button {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #e8f5f3;
+  color: #2f8f8b;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .promo-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-filter select {
+    width: 100%;
+  }
+
+  .promo-hero-content h1 {
+    font-size: 28px;
+  }
+}
+
+.promo-detail-btn {
+  margin-top: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #e8f5f3;
+  color: #2f8f8b;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.promo-detail-btn:hover {
+  background: #2f8f8b;
+  color: #fff;
+}

@@ -1,0 +1,185 @@
+/* ===============================
+   TREATMENTS PAGE
+================================ */
+.treatments-page {
+  background: #ffffff;
+}
+
+/* ===============================
+   HERO
+================================ */
+.treatments-hero {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.treatments-hero-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.treatments-hero h1 {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 600;
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+.treatments-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ===============================
+   CONTROLS
+================================ */
+.treatments-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.treatments-search {
+  display: grid;
+  gap: 8px;
+}
+
+.treatments-search label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f6e69;
+}
+
+.treatments-search input {
+  height: 44px;
+  padding: 0 14px;
+  border: 2px solid #4fb6ad;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #244846;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.treatments-search input:focus {
+  border-color: #2f6e69;
+  box-shadow: 0 0 0 3px rgba(79, 182, 173, 0.2);
+}
+
+.treatments-sort-btn {
+  height: 44px;
+  padding: 0 18px;
+  border: 2px solid #2f6e69;
+  border-radius: 6px;
+  background: #2f6e69;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.treatments-sort-btn:hover {
+  transform: translateY(-1px);
+  background: #245e59;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+}
+
+/* ===============================
+   GRID
+================================ */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ===============================
+   CARD
+================================ */
+.treatment-card {
+  border: 2px solid #4fb6ad;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.treatment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGE */
+.treatment-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.treatment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BODY */
+.treatment-body {
+  padding: 16px 18px 20px;
+  text-align: center;
+}
+
+.treatment-body h3 {
+  color: #4fb6ad;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.treatment-body p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+  .treatments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .treatments-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .treatments-sort-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .treatments-hero h1 {
+    font-size: 28px;
+  }
+}

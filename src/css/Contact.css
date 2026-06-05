@@ -1,0 +1,164 @@
+.contact-section {
+  padding: 80px 20px;
+  background: #f7f9fc;
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+/* FORM CARD */
+.contact-form-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.contact-form-card h2 {
+  margin-bottom: 25px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d7e2;
+  font-size: 0.95rem;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* RIGHT SIDE */
+.contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* VISIT */
+.contact-visit {
+  background: #e8fff6;
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.contact-visit .icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.contact-visit h3 {
+  margin-bottom: 8px;
+}
+
+.contact-visit .link {
+  color: #16a34a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* QUICK ACTIONS */
+.contact-actions {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.contact-actions h4 {
+  margin-bottom: 15px;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.btn-action.primary {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.btn-action.outline {
+  background: transparent;
+  border: 1.5px solid #2563eb;
+  color: #2563eb;
+}
+
+/* EMERGENCY */
+.contact-emergency {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.contact-emergency .small-title {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.contact-emergency .phone {
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.contact-emergency .note {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

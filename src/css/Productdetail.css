@@ -1,0 +1,240 @@
+/* ===============================
+   PAGE
+================================ */
+.product-detail-page {
+  background: #fff;
+  padding: 40px 0 80px;
+}
+
+/* ===============================
+   BREADCRUMB
+================================ */
+.product-breadcrumb {
+  max-width: 1280px;
+  margin: 0 auto 30px;
+  font-size: 13px;
+  color: #777;
+}
+
+.product-breadcrumb span {
+  color: #000;
+  font-weight: 500;
+}
+
+/* ===============================
+   LAYOUT
+================================ */
+.product-detail-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 80px;
+}
+
+/* ===============================
+   GALLERY
+================================ */
+.product-detail-gallery {
+  position: relative;
+  background: #f7f7f7;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.badge-new {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #9fe0bf;
+  color: #1b5e3c;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.main-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 460px;
+}
+
+.main-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.thumbnail-list {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.thumbnail-list img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+.gallery-actions {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gallery-actions button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+/* ===============================
+   INFO
+================================ */
+.product-detail-info {
+  padding-top: 10px;
+}
+
+.brand {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #2f8f8b;
+  font-weight: 600;
+}
+
+.product-detail-info h1 {
+  font-size: 32px;
+  margin: 8px 0 10px;
+}
+
+.meta {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.rating {
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.rating span {
+  font-size: 12px;
+  color: #777;
+}
+
+.rating a {
+  margin-left: 12px;
+  font-size: 12px;
+  color: #2f8f8b;
+  text-decoration: none;
+}
+
+/* ===============================
+   PRICE
+================================ */
+.price {
+  margin-bottom: 24px;
+}
+
+.price-current {
+  font-size: 28px;
+  color: #ff5722;
+  font-weight: 600;
+  margin-right: 14px;
+}
+
+.price-old {
+  color: #999;
+  text-decoration: line-through;
+}
+
+/* ===============================
+   BUY
+================================ */
+.buy-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.buy-section input {
+  width: 80px;
+  height: 48px;
+  text-align: center;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+}
+
+.btn-buy {
+  flex: 1;
+  height: 48px;
+  border-radius: 24px;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===============================
+   TABS
+================================ */
+.product-tabs {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.product-tabs button {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  cursor: pointer;
+  color: #777;
+  border-bottom: 2px solid transparent;
+}
+
+.product-tabs button.active {
+  color: #000;
+  border-color: #000;
+}
+
+/* ===============================
+   TAB CONTENT
+================================ */
+.tab-content {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .product-detail-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

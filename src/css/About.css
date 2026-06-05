@@ -1,0 +1,150 @@
+.about-page {
+  width: 100%;
+}
+
+/* HERO */
+.about-hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.about-hero-overlay {
+  background: rgba(0,0,0,0.45);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.about-hero p {
+  max-width: 700px;
+  font-size: 1.1rem;
+}
+
+/* STORY */
+.about-story {
+  padding: 80px 0;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.story-grid.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.story-text h2 {
+  color: #6a2c91;
+  margin-bottom: 15px;
+}
+
+.story-text p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.story-image img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* JOURNEY */
+.about-journey {
+  padding: 80px 20px;
+  background: #f9fafc;
+  text-align: center;
+}
+
+.about-journey h2 {
+  color: #6a2c91;
+}
+
+.journey-subtitle {
+  margin: 10px 0 50px;
+  color: #666;
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: #6a2c91;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 50%;
+  padding: 20px;
+  position: relative;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.timeline-content .year {
+  font-weight: bold;
+  color: #6a2c91;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 30px;
+    text-align: left;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+  }
+}

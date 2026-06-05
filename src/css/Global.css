@@ -1,0 +1,22 @@
+/* src/Global.css */
+
+/* CSS Reset dasar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif; /* Ganti dengan font yang sesuai jika ada */
+  line-height: 1.6;
+  /* Atur warna latar belakang utama jika ada, untuk header kita biarkan putih */
+  background-color: #ffffff; 
+}
+
+/* Memastikan konten mengisi sisa ruang di antara Header dan Footer (untuk layout utuh) */
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
