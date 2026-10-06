@@ -3,11 +3,15 @@
   color: #1f2a2e;
 }
 
+/* Tinggi disamakan dengan carousel Home & hero About/Treatment/Blog
+   (--banner-h: 560 / 460 / 360px). Angka setelah koma = cadangan
+   kalau variabel belum ter-load. */
 .gallery-hero {
   position: relative;
-  height: 360px;
+  height: var(--banner-h, 560px);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
 }
@@ -121,6 +125,12 @@
   gap: 22px;
 }
 
+/* Tab "Semua": selalu 2 kolom (2 kartu atas, 2 kartu bawah),
+   tidak ikut aturan 4/2/1 kolom milik grid item biasa. */
+.gallery-grid--categories {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .gallery-card {
   background: #ffffff;
   border-radius: 18px;
@@ -162,6 +172,30 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 8px;
+}
+
+.gallery-card--category {
+  display: block;
+  width: 100%;
+  border: 1px solid #edf1f2;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.gallery-card--category:focus-visible {
+  outline: 2px solid #2f8f8b;
+  outline-offset: 3px;
+}
+
+.gallery-meta--category {
+  text-align: center;
+}
+
+.gallery-meta--category h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f4f52;
 }
 
 .gallery-meta h3 {
@@ -208,6 +242,12 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 991.98px) {
+  .gallery-hero {
+    height: var(--banner-h, 460px);
+  }
+}
+
 @media (max-width: 1024px) {
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
@@ -226,7 +266,7 @@
 
 @media (max-width: 640px) {
   .gallery-hero {
-    height: 300px;
+    height: var(--banner-h, 360px);
   }
 
   .gallery-hero h1 {

@@ -13,8 +13,9 @@ import Product from "./components/Product";
 import Productdetail from "./components/Productdetail";
 import Galerry from "./components/Gallery";
 import Treatment from "./components/Treatment";
-
-
+import TreatmentDetail from "./components/TreatmentDetail"; // sesuaikan path
+import ClinicDetail from "./components/ClinicDetail"; // sesuaikan path
+   
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -36,6 +37,9 @@ function App() {
         <Route path="/gallery" element={<Galerry />} />
         <Route path="/product/:slug" element={<Productdetail />} />
         <Route path="/treatment" element={<Treatment />} />
+         <Route path="/treatment/:id" element={<TreatmentDetail />} />
+        <Route path="/ClinicLocation/:id" element={<ClinicDetail />} /> 
+
       </Routes>
 
       <Footer />

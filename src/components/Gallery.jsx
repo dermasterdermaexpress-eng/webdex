@@ -87,10 +87,28 @@ export default function Gallery() {
     },
   ];
 
+  // Kategori (selain "Semua"), dipakai untuk tampilan default tab "Semua":
+  // 1 foto wakil per kategori, sesuai gambar referensi (Treatment, Clinic,
+  // Before After, Event).
+  const categories = filters.filter((f) => f !== "Semua");
+
+  const categoryPreviews = useMemo(
+    () =>
+      categories
+        .map((cat) => items.find((item) => item.tag === cat))
+        .filter(Boolean)
+        .map((item) => ({ ...item, isCategoryCard: true, title: item.tag })),
+    [categories, items]
+  );
+
   const filteredItems = useMemo(() => {
     if (activeFilter === "Semua") return items;
     return items.filter((item) => item.tag === activeFilter);
   }, [activeFilter, items]);
+
+  // Default tab "Semua" -> tampilkan 4 kartu kategori.
+  // Tab lain -> tampilkan item asli sesuai kategori yang dipilih.
+  const gridItems = activeFilter === "Semua" ? categoryPreviews : filteredItems;
 
   return (
     <section className="gallery-page">
@@ -138,21 +156,43 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="gallery-grid">
-          {filteredItems.map((item) => (
-            <div className="gallery-card" key={item.id}>
-              <div className="gallery-image">
-                <img src={item.image} alt={item.title} />
+        <div
+          className={`gallery-grid ${
+            activeFilter === "Semua" ? "gallery-grid--categories" : ""
+          }`}
+        >
+          {gridItems.map((item) =>
+            item.isCategoryCard ? (
+              // Kartu kategori (tampil saat tab "Semua" aktif): klik untuk
+              // langsung membuka foto-foto di kategori tersebut.
+              <button
+                type="button"
+                className="gallery-card gallery-card--category"
+                key={item.tag}
+                onClick={() => setActiveFilter(item.tag)}
+              >
+                <div className="gallery-image">
+                  <img src={item.image} alt={item.tag} />
+                </div>
+                <div className="gallery-meta gallery-meta--category">
+                  <h3>{item.tag}</h3>
+                </div>
+              </button>
+            ) : (
+              <div className="gallery-card" key={item.id}>
+                <div className="gallery-image">
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="gallery-meta">
+                  <p className="gallery-tag">{item.tag}</p>
+                  <h3>{item.title}</h3>
+                </div>
               </div>
-              <div className="gallery-meta">
-                <p className="gallery-tag">{item.tag}</p>
-                <h3>{item.title}</h3>
-              </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
 
-        <div className="gallery-cta">
+        {/* <div className="gallery-cta">
           <div>
             <h3>Ready for your glow-up?</h3>
             <p>
@@ -161,7 +201,7 @@ export default function Gallery() {
             </p>
           </div>
           <button type="button">Jadwalkan Konsultasi</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

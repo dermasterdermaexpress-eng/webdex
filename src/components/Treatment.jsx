@@ -1,59 +1,39 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import "../css/Treatment.css";
 
-// Ganti dengan gambar kamu sendiri di folder assets
-import tt1 from "../assets/treatment/t1.jpg";
-import tt2 from "../assets/treatment/t2.jpg";
-import tt3 from "../assets/treatment/t3.jpg";
-import tt4 from "../assets/treatment/t4.jpg";
-import tt5 from "../assets/treatment/t5.jpg";
-import tt6 from "../assets/treatment/t6.jpg";
 import heroImg from "../assets/about/about-hero.jpg";
+import { treatments } from "../data/treatments";
+
+const PAGE_SIZE = 6; // jumlah treatment per halaman
+
+// Susun daftar nomor halaman, mis. [1, "…", 4, 5, 6, "…", 10]
+function getPageItems(current, total) {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+
+  const items = [1];
+  const start = Math.max(2, current - 1);
+  const end = Math.min(total - 1, current + 1);
+
+  if (start > 2) items.push("start-ellipsis");
+  for (let i = start; i <= end; i++) items.push(i);
+  if (end < total - 1) items.push("end-ellipsis");
+  items.push(total);
+
+  return items;
+}
 
 export default function Treatments() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortAsc, setSortAsc] = useState(true);
 
-  const treatments = [
-    {
-      id: 1,
-      title: "BENANG HIDUNG",
-      desc: "Nose Threadlift (Tanam Benang Hidung) merupakan treatment yang berguna untuk membuat jembatan hidung lebih tinggi dengan menggunakan benang.",
-      image: tt1,
-    },
-    {
-      id: 2,
-      title: "DERMATOX",
-      desc: "Dermatox merupakan treatment yang berguna untuk merileksasikan otot. Dermatox bekerja dengan cara memblokir aktivitas saraf.",
-      image: tt2,
-    },
-    {
-      id: 3,
-      title: "DERMAFILLER",
-      desc: "Dermafiller merupakan treatment yang berguna untuk mengisi daerah-daerah yang rentan kendur dan mengisi bagian yang kosong pada wajah.",
-      image: tt3,
-    },
-    {
-      id: 4,
-      title: "ACNE SCAR",
-      desc: "Acne scar adalah bekas jerawat yang menyerupai bopeng di kulit wajah. Acne scar merupakan masalah kulit dalam suatu proses penyembuhan.",
-      image: tt4,
-    },
-    {
-      id: 5,
-      title: "FACIAL",
-      desc: "Facial adalah perawatan wajah non-invasif yang umum dilakukan di klinik kecantikan, meliputi ekstraksi komedo, eksfoliasi, dan mask.",
-      image: tt5,
-    },
-    {
-      id: 6,
-      title: "JEJU WHITE PEEL",
-      desc: "Jeju White Peel merupakan facial yang berguna untuk mengangkat sel kulit mati, membersihkan pori-pori, dan mencerahkan kulit.",
-      image: tt6,
-    },
-  ];
+  // nomor halaman disimpan di URL (?page=2) supaya tetap terjaga
+  // saat pindah ke halaman detail lalu menekan tombol Back
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedPage = parseInt(searchParams.get("page"), 10) || 1;
+  const contentRef = useRef(null);
 
-  const visibleTreatments = useMemo(() => {
+  const filteredTreatments = useMemo(() => {
     const normalizedSearch = searchTerm.trim().toLowerCase();
     const filtered = treatments.filter((item) =>
       item.title.toLowerCase().includes(normalizedSearch)
@@ -63,7 +43,24 @@ export default function Treatments() {
       const result = a.title.localeCompare(b.title);
       return sortAsc ? result : -result;
     });
-  }, [searchTerm, sortAsc, treatments]);
+  }, [searchTerm, sortAsc]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredTreatments.length / PAGE_SIZE));
+  const currentPage = Math.min(Math.max(requestedPage, 1), totalPages);
+  const pagedTreatments = filteredTreatments.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE
+  );
+
+  const goToPage = (page) => {
+    setSearchParams(page === 1 ? {} : { page: String(page) });
+    contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // kembali ke halaman 1 saat pencarian / urutan berubah
+  const resetPage = () => {
+    if (searchParams.has("page")) setSearchParams({}, { replace: true });
+  };
 
   return (
     <section className="treatments-page">
@@ -78,7 +75,7 @@ export default function Treatments() {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className="treatments-container">
+      <div className="treatments-container" ref={contentRef}>
         <div className="treatments-controls">
           <div className="treatments-search">
             <label htmlFor="treatment-search">Search Treatment</label>
@@ -87,30 +84,91 @@ export default function Treatments() {
               type="search"
               placeholder="Cari treatment..."
               value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+                resetPage();
+              }}
             />
           </div>
           <button
             className="treatments-sort-btn"
             type="button"
-            onClick={() => setSortAsc((prev) => !prev)}
+            onClick={() => {
+              setSortAsc((prev) => !prev);
+              resetPage();
+            }}
           >
             Sort {sortAsc ? "A-Z" : "Z-A"}
           </button>
         </div>
-        <div className="treatments-grid">
-          {visibleTreatments.map((item) => (
-            <div className="treatment-card" key={item.id}>
-              <div className="treatment-image">
-                <img src={item.image} alt={item.title} />
-              </div>
-              <div className="treatment-body">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
+
+        {pagedTreatments.length === 0 ? (
+          <p className="treatments-empty">
+            Treatment tidak ditemukan. Coba kata kunci lain.
+          </p>
+        ) : (
+          <>
+            <div className="treatments-grid">
+              {pagedTreatments.map((item) => (
+                <Link
+                  className="treatment-card"
+                  to={`/treatment/${item.id}`}
+                  key={item.id}
+                >
+                  <div className="treatment-image">
+                    <img src={item.image} alt={item.title} loading="lazy" />
+                  </div>
+                  <div className="treatment-body">
+                    <p className="treatment-label">{item.category}</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                </Link>
+              ))}
             </div>
-          ))}
-        </div>
+
+            {/* ===== PAGINATION ===== */}
+            <nav className="treatments-pagination" aria-label="Halaman treatment">
+              <button
+                type="button"
+                className="tp-btn tp-arrow"
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                aria-label="Halaman sebelumnya"
+              >
+                ‹
+              </button>
+
+              {getPageItems(currentPage, totalPages).map((item) =>
+                typeof item === "number" ? (
+                  <button
+                    key={item}
+                    type="button"
+                    className={`tp-btn ${item === currentPage ? "active" : ""}`}
+                    onClick={() => goToPage(item)}
+                    aria-label={`Halaman ${item}`}
+                    aria-current={item === currentPage ? "page" : undefined}
+                  >
+                    {item}
+                  </button>
+                ) : (
+                  <span key={item} className="tp-ellipsis" aria-hidden="true">
+                    …
+                  </span>
+                )
+              )}
+
+              <button
+                type="button"
+                className="tp-btn tp-arrow"
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                aria-label="Halaman berikutnya"
+              >
+                ›
+              </button>
+            </nav>
+          </>
+        )}
       </div>
     </section>
   );

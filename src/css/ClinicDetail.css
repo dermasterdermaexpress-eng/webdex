@@ -1,0 +1,499 @@
+/* ===============================
+   COLOR PALETTE (BRAND)
+   #F7F7F7 background | #E7E7E7 accent bg | #48B6AD logo teal
+   #036661 primary    | #444444 bold text | #545151 support text
+================================ */
+.cd-page {
+  background: #e7e7e7;
+  font-family: "Manrope", sans-serif;
+  min-height: 60vh;
+}
+
+.cd-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+
+/* ===== BREADCRUMB ===== */
+.cd-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  font-size: 13px;
+  color: #545151;
+}
+
+.cd-breadcrumb a {
+  color: #036661;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cd-breadcrumb a:hover {
+  color: #48b6ad;
+}
+
+.cd-current {
+  color: #444444;
+}
+
+/* ===== TOP: INFO CARD + BANNER ===== */
+.cd-top {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.cd-info-card {
+  background: #f7f7f7;
+  border-radius: 18px;
+  padding: 26px 24px;
+  box-shadow: 0 10px 28px rgba(68, 68, 68, 0.1);
+}
+
+.cd-info-card h1 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #444444;
+}
+
+.cd-status {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: #d9eeec;
+  color: #036661;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cd-info-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cd-icon {
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.cd-info-label {
+  margin: 0 0 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #036661;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cd-info-value {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #545151;
+}
+
+.cd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+/* ===== BUTTONS (dipakai di seluruh halaman detail) ===== */
+.cd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cd-btn:hover {
+  transform: translateY(-1px);
+}
+
+.cd-btn-primary {
+  background: #036661;
+  border-color: #036661;
+  color: #f7f7f7;
+}
+
+.cd-btn-primary:hover {
+  background: #48b6ad;
+  border-color: #48b6ad;
+}
+
+.cd-btn-outline {
+  background: transparent;
+  border-color: #036661;
+  color: #036661;
+}
+
+.cd-btn-outline:hover {
+  background: #036661;
+  color: #f7f7f7;
+}
+
+.cd-full {
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* ===== BANNER PROMO (placeholder bergradasi, ganti dengan gambar asli) ===== */
+.cd-banner-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-height: 220px;
+  padding: 32px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #036661 0%, #48b6ad 100%);
+  color: #f7f7f7;
+  box-shadow: 0 10px 28px rgba(3, 102, 97, 0.2);
+}
+
+.cd-banner-eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.cd-banner-title {
+  margin: 4px 0 0;
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.cd-banner-sub {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ===== TIM PROFESIONAL ===== */
+.cd-team-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.cd-team-header h2 {
+  margin: 0 0 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #444444;
+}
+
+.cd-team-header p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #48b6ad;
+}
+
+.cd-team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 56px;
+}
+
+.doctor-card {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(68, 68, 68, 0.08);
+}
+
+.doctor-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.doctor-photo--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d9eeec;
+  color: #036661;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.doctor-card h3 {
+  margin: 0 0 4px;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #444444;
+}
+
+.doctor-card p {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #48b6ad;
+}
+
+/* ===== BOTTOM GRID: RATING / KONTAK / JAM ===== */
+.cd-bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.cd-panel {
+  background: #f7f7f7;
+  border-radius: 16px;
+  padding: 24px 22px;
+  box-shadow: 0 8px 22px rgba(68, 68, 68, 0.08);
+}
+
+.cd-panel-title {
+  margin: 0 0 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #444444;
+  text-align: center;
+}
+
+.cd-panel-sub {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #545151;
+  text-align: center;
+}
+
+/* RATING */
+.cd-rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 14px 0 18px;
+}
+
+.star-rating {
+  color: #d9d9d9;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.star-rating .star.filled {
+  color: #f5b544;
+}
+
+.cd-rating-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.cd-review {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e7e7e7;
+}
+
+.cd-review-name {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.cd-review-date {
+  margin: 2px 0 6px;
+  font-size: 11px;
+  color: #48b6ad;
+}
+
+.cd-review-text {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #545151;
+}
+
+/* GET IN TOUCH (form) */
+.cd-form {
+  display: grid;
+  gap: 12px;
+}
+
+.cd-form input,
+.cd-form select {
+  padding: 11px 14px;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #444444;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cd-form input::placeholder {
+  color: #545151;
+  opacity: 0.7;
+}
+
+.cd-form input:focus,
+.cd-form select:focus {
+  border-color: #48b6ad;
+  box-shadow: 0 0 0 3px rgba(72, 182, 173, 0.2);
+}
+
+.cd-form-success {
+  padding: 14px;
+  border-radius: 8px;
+  background: #d9eeec;
+  color: #036661;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* BUSINESS HOURS */
+.cd-hours-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cd-hours-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e7e7e7;
+  font-size: 13px;
+  color: #545151;
+}
+
+.cd-hours-list li:last-child {
+  border-bottom: none;
+}
+
+.cd-hours-list li span:first-child {
+  min-width: 36px;
+  font-weight: 700;
+  color: #444444;
+}
+
+.cd-hours-sep {
+  color: #48b6ad;
+}
+
+.cd-hours-list li span:last-child {
+  margin-left: auto;
+  color: #444444;
+}
+
+/* ===== BACK LINK ===== */
+.cd-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #036661;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cd-back-link:hover {
+  color: #48b6ad;
+}
+
+/* ===== TIDAK DITEMUKAN ===== */
+.cd-notfound {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.cd-notfound h1 {
+  margin: 0 0 12px;
+  font-family: "Playfair Display", serif;
+  color: #444444;
+}
+
+.cd-notfound p {
+  margin: 0 0 24px;
+  color: #545151;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 991.98px) {
+  .cd-top {
+    grid-template-columns: 1fr;
+  }
+
+  .cd-team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cd-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cd-container {
+    padding: 24px 16px 56px;
+  }
+
+  .cd-info-card {
+    padding: 22px 18px;
+  }
+
+  .cd-banner-frame {
+    min-height: 180px;
+    padding: 24px;
+  }
+
+  .cd-banner-title {
+    font-size: 24px;
+  }
+
+  .cd-team-header h2 {
+    font-size: 24px;
+  }
+
+  .cd-panel {
+    padding: 20px 18px;
+  }
+}

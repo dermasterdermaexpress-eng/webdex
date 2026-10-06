@@ -87,21 +87,32 @@ const heroSlides = [
 const treatmentsPreview = [
   {
     id: 1,
-    title: "BENANG HIDUNG",
+    category: "Treatment",
+    title: "Benang Hidung",
     desc: "Nose Threadlift untuk membentuk jembatan hidung lebih proporsional.",
     img: benangImg
   },
   {
     id: 2,
-    title: "DERMATOX",
+    category: "Treatment",
+    title: "Dermatox",
     desc: "Merileksasikan otot dan membantu tampilan wajah lebih segar.",
     img: dermatoxImg
   },
   {
     id: 3,
-    title: "DERMALFILLER",
+    category: "Treatment",
+    title: "Dermalfiller",
     desc: "Mengisi area wajah yang kosong agar terlihat lebih seimbang.",
     img: fillerImg
+  },
+  {
+    id: 4,
+    category: "Treatment",
+    title: "Glow Renewal Facial",
+    desc: "Facial klinis untuk kulit lebih cerah, lembap, dan segar.",
+    // TODO: ganti dengan foto treatment yang sesuai (mis. ../assets/services/glow-renewal-facial.jpg)
+    img: dermatoxImg
   }
 ];
 
@@ -254,20 +265,27 @@ function Home() {
       </section>
 
       {/* TREATMENTS PREVIEW */}
-      <section className="home-treatments">
+      <section className="home-signature">
         <div className="container">
-          <h2>Treatments</h2>
-          <div className="treatments-preview-grid">
-            {treatmentsPreview.map((item) => (
-              <article className="treatments-preview-card" key={item.id}>
-                <img src={item.img} alt={item.title} />
-                <div className="treatments-preview-body">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </div>
-                <div className="treatments-preview-accent"></div>
-              </article>
-            ))}
+          <div className="hsig-header">
+            <span className="hsig-eyebrow">Our Signature</span>
+            <h2 className="hsig-title">What We Do</h2>
+          </div>
+
+          <div className="hsig-panel">
+            <div className="hsig-grid">
+              {treatmentsPreview.map((item) => (
+                <a className="hsig-card" href="/treatment" key={item.id}>
+                  <div className="hsig-media">
+                    <img src={item.img} alt={item.title} loading="lazy" />
+                  </div>
+                  <div className="hsig-body">
+                    <p className="hsig-label">{item.category}</p>
+                    <h3 className="hsig-name">{item.title}</h3>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>

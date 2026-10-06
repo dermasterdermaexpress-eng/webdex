@@ -32,19 +32,19 @@ export default function Promo() {
   return (
     <section className="promo-page">
       <div
-  className="promo-hero"
-  style={{ backgroundImage: `url(${bgpromo1})` }}
->
-  <div className="promo-hero-overlay" />
-  <div className="promo-hero-content">
-    <h1>Promo Derma Express</h1>
-    <p>
-      Di Derma Express, kami percaya setiap orang berhak memiliki kulit yang sehat dan memukau.
-      Melalui halaman promo ini, kami menghadirkan rangkaian perawatan ahli dengan harga istimewa,
-      khusus untuk Anda. Mari mulai perjalanan kecantikan Anda bersama partner dermatologi terpercaya.
-    </p>
-  </div>
-</div>
+        className="promo-hero"
+        style={{ backgroundImage: `url(${bgpromo1})` }}
+      />
+
+      {/* ===== JUDUL & DESKRIPSI (di bawah hero) ===== */}
+      <div className="promo-intro">
+        <h1>Promo Derma Express</h1>
+        <p>
+          Di Derma Express, kami percaya setiap orang berhak memiliki kulit yang sehat dan memukau.
+          Melalui halaman promo ini, kami menghadirkan rangkaian perawatan ahli dengan harga istimewa,
+          khusus untuk Anda. Mari mulai perjalanan kecantikan Anda bersama partner dermatologi terpercaya.
+        </p>
+      </div>
 
       {/* ===== CONTENT ===== */}
       <div className="promo-container">

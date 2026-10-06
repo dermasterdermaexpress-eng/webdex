@@ -57,13 +57,19 @@
 
 .btn-primary {
   margin-top: 10px;
-  background: #2563eb;
+  background: #48b6ad;
   color: #fff;
   border: none;
   padding: 14px;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #036661;
+  transform: translateY(-1px);
 }
 
 /* RIGHT SIDE */
@@ -115,18 +121,40 @@
   font-size: 0.95rem;
   margin-bottom: 12px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .btn-action.primary {
-  background: #2563eb;
+  background: #48b6ad;
   color: #fff;
   border: none;
 }
 
+.btn-action.primary:hover {
+  background: #036661;
+  transform: translateY(-1px);
+}
+
 .btn-action.outline {
   background: transparent;
-  border: 1.5px solid #2563eb;
-  color: #2563eb;
+  border: 1.5px solid #48b6ad;
+  color: #48b6ad;
+}
+
+.btn-action.outline:hover {
+  background: #48b6ad;
+  color: #fff;
 }
 
 /* EMERGENCY */
@@ -152,13 +180,77 @@
   color: #666;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991.98px) {
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-section {
+    padding: 56px 16px;
+  }
+
+  .contact-form-card {
+    padding: 28px 22px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-section {
+    padding: 40px 14px;
+  }
+
+  .contact-container {
+    gap: 18px;
+  }
+
+  .contact-form-card {
+    padding: 22px 18px;
+    border-radius: 12px;
+  }
+
+  .contact-form-card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+  }
+
+  .form-group {
+    margin-bottom: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .contact-visit,
+  .contact-actions,
+  .contact-emergency {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .btn-action {
+    padding: 12px;
+    font-size: 0.9rem;
   }
 }

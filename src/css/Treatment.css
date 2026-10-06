@@ -1,17 +1,27 @@
 /* ===============================
+   COLOR PALETTE (BRAND)
+   #F7F7F7 background | #E7E7E7 accent bg | #48B6AD logo teal
+   #036661 primary    | #444444 bold text | #545151 support text
+================================ */
+
+/* ===============================
    TREATMENTS PAGE
 ================================ */
 .treatments-page {
-  background: #ffffff;
+  background: #e7e7e7;
+  font-family: "Manrope", sans-serif;
 }
 
 /* ===============================
    HERO
+   Tinggi disamakan dengan carousel Home (--banner-h: 560 / 460 / 360px).
+   Angka setelah koma = cadangan kalau variabel belum ter-load.
 ================================ */
 .treatments-hero {
-  height: 220px;
+  height: var(--banner-h, 560px);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,19 +29,23 @@
 }
 
 .treatments-hero-overlay {
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(3, 102, 97, 0.45);
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 20px;
 }
 
 .treatments-hero h1 {
-  color: #ffffff;
-  font-size: 36px;
+  margin: 0;
+  color: #f7f7f7;
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
   font-weight: 600;
+  letter-spacing: 1px;
 }
 
 /* ===============================
@@ -40,7 +54,7 @@
 .treatments-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 60px 20px 80px;
 }
 
 /* ===============================
@@ -51,7 +65,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: end;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .treatments-search {
@@ -60,44 +74,59 @@
 }
 
 .treatments-search label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #2f6e69;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #036661;
 }
 
 .treatments-search input {
   height: 44px;
-  padding: 0 14px;
-  border: 2px solid #4fb6ad;
-  border-radius: 6px;
+  padding: 0 16px;
+  border: 1px solid #48b6ad;
+  border-radius: 8px;
+  background: #f7f7f7;
+  font-family: inherit;
   font-size: 14px;
-  color: #244846;
+  color: #444444;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.treatments-search input::placeholder {
+  color: #545151;
+  opacity: 0.7;
+}
+
 .treatments-search input:focus {
-  border-color: #2f6e69;
-  box-shadow: 0 0 0 3px rgba(79, 182, 173, 0.2);
+  border-color: #036661;
+  box-shadow: 0 0 0 3px rgba(72, 182, 173, 0.25);
 }
 
 .treatments-sort-btn {
   height: 44px;
-  padding: 0 18px;
-  border: 2px solid #2f6e69;
-  border-radius: 6px;
-  background: #2f6e69;
-  color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 8px;
+  background: #036661;
+  color: #f7f7f7;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .treatments-sort-btn:hover {
   transform: translateY(-1px);
-  background: #245e59;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  background: #48b6ad;
+  box-shadow: 0 6px 14px rgba(3, 102, 97, 0.25);
+}
+
+.treatments-empty {
+  padding: 48px 0;
+  text-align: center;
+  color: #545151;
 }
 
 /* ===============================
@@ -105,7 +134,7 @@
 ================================ */
 .treatments-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
 }
 
@@ -113,56 +142,165 @@
    CARD
 ================================ */
 .treatment-card {
-  border: 2px solid #4fb6ad;
-  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  background: #ffffff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 0;
+  border-radius: 20px;
+  background: #f7f7f7;
+  box-shadow: 0 10px 28px rgba(68, 68, 68, 0.12);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .treatment-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 16px 36px rgba(68, 68, 68, 0.18);
+}
+
+.treatment-card:focus-visible {
+  outline: 2px solid #48b6ad;
+  outline-offset: 3px;
 }
 
 /* IMAGE */
 .treatment-image {
   width: 100%;
-  height: 220px;
+  aspect-ratio: 5 / 4;
   overflow: hidden;
+  background: #e7e7e7;
 }
 
 .treatment-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.treatment-card:hover .treatment-image img {
+  transform: scale(1.05);
 }
 
 /* BODY */
 .treatment-body {
-  padding: 16px 18px 20px;
-  text-align: center;
+  padding: 20px 22px 28px;
+  text-align: left;
+}
+
+.treatment-label {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #036661;
 }
 
 .treatment-body h3 {
-  color: #4fb6ad;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #444444;
+  transition: color 0.2s ease;
 }
 
-.treatment-body p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #444;
+.treatment-card:hover .treatment-body h3 {
+  color: #036661;
+}
+
+/* ===============================
+   PAGINATION
+================================ */
+.treatments-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 44px;
+}
+
+.tp-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: #f7f7f7;
+  box-shadow: 0 4px 12px rgba(68, 68, 68, 0.1);
+  color: #444444;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tp-btn:hover:not(:disabled):not(.active) {
+  background: #48b6ad;
+  color: #f7f7f7;
+  transform: translateY(-1px);
+}
+
+.tp-btn:focus-visible {
+  outline: 2px solid #48b6ad;
+  outline-offset: 2px;
+}
+
+.tp-btn.active {
+  background: #036661;
+  color: #f7f7f7;
+  cursor: default;
+}
+
+.tp-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.tp-arrow {
+  font-size: 20px;
+  padding: 0 0 2px;
+}
+
+.tp-ellipsis {
+  min-width: 24px;
+  text-align: center;
+  color: #545151;
+  user-select: none;
 }
 
 /* ===============================
    RESPONSIVE
 ================================ */
-@media (max-width: 900px) {
+@media (max-width: 991.98px) {
+  .treatments-hero {
+    height: var(--banner-h, 460px);
+  }
+
   .treatments-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .treatments-hero {
+    height: var(--banner-h, 360px);
+  }
+
+  .treatments-hero h1 {
+    font-size: 34px;
+  }
+
+  .treatments-container {
+    padding: 40px 16px 56px;
   }
 
   .treatments-controls {
@@ -174,12 +312,35 @@
   }
 }
 
-@media (max-width: 500px) {
-  .treatments-grid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 575.98px) {
   .treatments-hero h1 {
     font-size: 28px;
+  }
+
+  .treatments-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .treatment-body {
+    padding: 16px 18px 22px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .treatments-pagination {
+    gap: 6px;
+    margin-top: 32px;
+  }
+
+  .tp-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .tp-ellipsis {
+    min-width: 16px;
   }
 }

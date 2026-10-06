@@ -1,59 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../css/ClinicLocation.css";
 
-import bsdImg from "../assets/cliniclocations/bsd.jpg";
-import test from "../assets/cliniclocations/test1.jpg";
-
-const clinicsData = [
-  {
-    id: 1,
-    name: "Derma Express BSD", 
-    city: "Tangerang",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong",
-    image: bsdImg
-  },
-  {
-    id: 2,
-    name: "Derma Express Pekanbaru",
-    city: "Pekanbaru",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong, Pakulonan Barat, Kelapa dua Tangerang, Banten.",
-    image: test
-  },
-  {
-    id: 3,
-    name: "Derma Express Cibubur",
-    city: "Jakarta",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong, Pakulonan Barat, Kelapa dua Tangerang, Banten.",
-    image: bsdImg
-  },
-  {
-    id: 4,
-    name: "Derma Express Bekasi",
-    city: "Bekasi",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong, Pakulonan Barat, Kelapa dua Tangerang, Banten.",
-    image: test
-  },
-  {
-    id: 5,
-    name: "Derma Express PIK",
-    city: "Jakarta",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong, Pakulonan Barat, Kelapa dua Tangerang, Banten.",
-    image: bsdImg
-  },
-  {
-    id: 6,
-    name: "Derma Express Pluit",
-    city: "Jakarta",
-    desc: "Jl. Gading Golf Boulevard, Ruko Diamond III No.12-15, Gading Serpong, Pakulonan Barat, Kelapa dua Tangerang, Banten.",
-    image: test
-  }
-];
+import { clinics } from "../data/clinics";
 
 export default function ClinicLocation() {
   const [search, setSearch] = useState("");
   const [city, setCity] = useState("all");
 
-  const filteredClinics = clinicsData.filter(item => {
+  const filteredClinics = clinics.filter(item => {
     const matchSearch =
       item.name.toLowerCase().includes(search.toLowerCase());
     const matchCity = city === "all" || item.city === city;
@@ -62,7 +17,7 @@ export default function ClinicLocation() {
 
   return (
     <section className="clinic-location-page">
-      <div className="container">
+      <div className="clinic-container">
 
         {/* Breadcrumb */}
         <p className="breadcrumb">
@@ -104,15 +59,22 @@ export default function ClinicLocation() {
             <div className="clinic-card" key={item.id}>
               <img src={item.image} alt={item.name} />
               <div className="card-content">
+                <span className="city-badge">{item.city}</span>
                 <h4>{item.name}</h4>
                 <p>{item.desc}</p>
-                <button>Selengkapnya</button>
+                <Link to={`/ClinicLocation/${item.id}`} className="card-link-btn">
+                  Selengkapnya
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Pagination */}
+        {/* Pagination
+            CATATAN: tampilan nomor halaman di bawah ini masih statis
+            (belum terhubung ke `filteredClinics`). Hanya tampilan yang
+            dirapikan di sini; logika paging sebenarnya bisa dibuat
+            menyusul, mirip pola di halaman Treatment/Blog. */}
         <div className="pagination">
           <button>{"<"}</button>
           <button className="active">1</button>

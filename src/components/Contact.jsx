@@ -1,6 +1,13 @@
 import React from "react";
 import "../css/Contact.css";
 
+// Ikon sementara dari link eksternal (belum di-hosting sendiri di /src/assets).
+// TODO: kalau sudah ada asetnya sendiri, unduh gambar ini, taruh di
+// src/assets/contact/, lalu ganti baris di bawah dengan `import ... from "../assets/contact/..."`.
+const bookAppointmentIcon =
+  "https://ugc.production.linktr.ee/b352a569-5533-4fac-be77-22f3d0ce7344_untitled.png?io=true&size=thumbnail-stack_v1_0";
+const whatsappIcon = bookAppointmentIcon;
+
 export default function Contact() {
   return (
     <section className="contact-section">
@@ -74,20 +81,22 @@ export default function Contact() {
             <h4>Quick Actions</h4>
 
             <button className="btn-action primary">
-              📅 Book Appointment
+              <img src={bookAppointmentIcon} alt="" className="btn-icon" />
+              Book Appointment
             </button>
 
-            <button className="btn-action outline">
+            {/* <button className="btn-action outline">
               📞 Call Now
-            </button>
+            </button> */}
 
             <button className="btn-action outline">
-              💬 WhatsApp
+              <img src={whatsappIcon} alt="" className="btn-icon" />
+              WhatsApp
             </button>
           </div>
 
           {/* EMERGENCY */}
-          <div className="contact-emergency">
+          {/* <div className="contact-emergency">
             <p className="small-title">
               For urgent medical concerns or after-hours emergencies:
             </p>
@@ -95,7 +104,7 @@ export default function Contact() {
             <p className="note">
               Available 24/7 for emergency consultations
             </p>
-          </div>
+          </div> */}
 
         </div>
       </div>

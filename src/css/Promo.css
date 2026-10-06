@@ -3,42 +3,39 @@
   background: #fafafa;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO =====
+   Hanya gambar (tanpa teks di atasnya). Tinggi disamakan dengan carousel
+   Home & hero About/Treatment/Blog/Gallery (--banner-h: 560/460/360px).
+   Angka setelah koma = cadangan kalau variabel belum ter-load. */
 .promo-hero {
-  position: relative;
-  height: 360px;
+  height: var(--banner-h, 560px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.promo-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-}
-
-.promo-hero-content {
-  position: relative;
-  z-index: 2;
+/* ===== JUDUL & DESKRIPSI (di bawah hero) =====
+   Ukurannya disesuaikan agar seimbang dengan tinggi hero: padding lega,
+   judul besar, dan warna disesuaikan untuk latar terang (bukan lagi
+   putih di atas overlay gelap seperti sebelumnya). */
+.promo-intro {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 20px 8px;
   text-align: center;
-  color: white;
-  max-width: 720px;
-  padding: 0 20px;
 }
 
-.promo-hero-content h1 {
-  font-size: 36px;
-  margin-bottom: 12px;
+.promo-intro h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #1f2a2e;
 }
 
-.promo-hero-content p {
-  font-size: 14px;
-  opacity: 0.9;
+.promo-intro p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #5b6b70;
 }
 
 /* ===== CONTAINER ===== */
@@ -135,9 +132,31 @@
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
+  .promo-hero {
+    height: var(--banner-h, 460px);
+  }
+
   .promo-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .promo-hero {
+    height: var(--banner-h, 360px);
+  }
+
+  .promo-intro {
+    padding: 40px 20px 4px;
+  }
+
+  .promo-intro h1 {
+    font-size: 26px;
+  }
+
+  .promo-intro p {
+    font-size: 14px;
   }
 }
 
@@ -148,10 +167,6 @@
 
   .promo-filter select {
     width: 100%;
-  }
-
-  .promo-hero-content h1 {
-    font-size: 28px;
   }
 }
 
